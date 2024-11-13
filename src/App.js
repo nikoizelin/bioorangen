@@ -40,16 +40,16 @@ function App() {
               element={<BioOrangen />}
           />
           <Route
+              path="/admin"
+              element={<Admin />}
+          />
+          <Route
               path="/order"
               element={<OrderStepper />}
           />
           <Route
               path="/order-confirmation"
               element={<OrderConfirmation />}
-          />
-          <Route
-              path="/admin"
-              element={<Admin />}
           />
           <Route
               path="/login"
