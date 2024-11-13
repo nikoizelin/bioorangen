@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
+
+
+
+body {
+  margin: 0;
+  font-family: 'PT Serif', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.error {
+  color: red;
+}
+
+@media screen and (max-width: 767px) {
+  .px-6, .pl-8, .pr8 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .right-8 {
+    right: 10px;
+  }
+
+  .link {
+    text-decoration: underline;
+    color: #ea580c;
+  }
+
+}

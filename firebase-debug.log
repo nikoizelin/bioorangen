@@ -1,0 +1,25 @@
+[debug] [2024-11-12T16:34:06.818Z] ----------------------------------------------------------------------
+[debug] [2024-11-12T16:34:06.823Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\nicoi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init emulators
+[debug] [2024-11-12T16:34:06.823Z] CLI Version:   13.24.2
+[debug] [2024-11-12T16:34:06.824Z] Platform:      win32
+[debug] [2024-11-12T16:34:06.824Z] Node Version:  v20.12.1
+[debug] [2024-11-12T16:34:06.824Z] Time:          Tue Nov 12 2024 17:34:06 GMT+0100 (Mitteleuropäische Normalzeit)
+[debug] [2024-11-12T16:34:06.824Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-11-12T16:34:06.976Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-12T16:34:06.977Z] > authorizing via signed-in user (nicojann.iselin@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\nicoi\Documents\Office\Projekte\bioorangen\bioorangen
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
