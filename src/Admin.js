@@ -3,6 +3,7 @@ import { db, auth } from "./firebaseConfig";
 import { collection, getDocs, query, where, doc, updateDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
+import Logout from "./Logout";
 
 
 const Admin = () => {
@@ -123,11 +124,12 @@ const Admin = () => {
 
   return (
     <div className="p-6">
+      <Logout />
       <h1 className="text-2xl font-bold mb-4">Admin - Bestellübersicht</h1>
             {/* Total-Kilo */}
             <div className="my-4">
         Total Kilo Orangen: <b>{productAmounts[1] != null ? productAmounts[1] : 0 } kg = {productAmounts[1] / 16} Harassen</b><br></br>
-        Total Kilo Zitronen: <b>{productAmounts[2] != null ? productAmounts[2] : 0 } kg = {productAmounts[2] / 16} Harassen</b><br></br>
+        {/*Total Kilo Zitronen: <b>{productAmounts[2] != null ? productAmounts[2] : 0 } kg = {productAmounts[2] / 16} Harassen</b><br></br>*/}
         {/*Total Kilo Mandarinen: <b>{productAmounts[3] != null ? productAmounts[3] : 0 } kg = {productAmounts[3] / 16} Harassen</b><br></br>*/}
       </div>
       {/* Suchfeld */}

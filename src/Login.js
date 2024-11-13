@@ -15,7 +15,7 @@ const Login = () => {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      window.location.href = "/admin"; // Redirect after successful login
+      navigate("/admin") // Redirect after successful login
     } catch (error) {
       setError("Fehler beim Anmelden: " + error.message);
     }
