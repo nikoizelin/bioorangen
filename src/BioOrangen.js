@@ -13,6 +13,9 @@ const BioOrangen = () => {
   const goToOrder=()=>{
     navigate("/order");
   }
+  const goToAdmin=()=>{
+    navigate("/admin");
+  }
     
     return (
       <div className="bg-orange-100">
@@ -145,7 +148,7 @@ const BioOrangen = () => {
 
       {/* Footer */}
       <footer className="text-center py-8 text-gray-500">
-        © {new Date().getFullYear()} BioOrangen.ch | Rietrasse 28, 8733 Eschenbach
+        © <a onClick={goToAdmin} >BioOrangen.ch </a> | Rietrasse 28, 8733 Eschenbach
       </footer>
     </div>
   );
