@@ -4,7 +4,7 @@ function ProductCard({ onItemSelected }) {
   const products = [
     { id: 1, name: 'Orangen', price: 2.8125, image: require('./images/bioorangen16.jpg') },
     { id: 2, name: 'Zitronen', price: 4.0, image: require('./images/bioorangen3.jpg') },
-    { id: 3, name: 'Mandarinen', price: 3.50, image: require('./images/bioorangen4.jpg') },
+    //{ id: 3, name: 'Mandarinen', price: 3.50, image: require('./images/bioorangen4.jpg') },
     //{ id: 4, name: 'Olivenöl', price: 32.00, image: require('./images/bioorangen17.jpg') },
   ];
 
@@ -94,7 +94,7 @@ function ProductCard({ onItemSelected }) {
   return (
     <div className="container mx-auto p-6">
       {/* Product Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-2">
         {products.map((product) => (
           <div
             key={product.id}
