@@ -6,10 +6,11 @@ import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
+
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  apiKey: "AIzaSyC3eWUq5XO9WoKf_mXDX2oOZQqGcFZdV2s",
   authDomain: "bioorangen-27916.firebaseapp.com",
   projectId: "bioorangen-27916",
   storageBucket: "bioorangen-27916.firebasestorage.app",
