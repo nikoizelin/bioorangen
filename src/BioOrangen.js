@@ -29,6 +29,25 @@ const BioOrangen = () => {
 
       
       <div className="p-4">
+      {/* Bestellinformationen Section */}
+      <section className="my-10 max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
+        <h2 className="text-3xl font-semibold text-gray-800">Bestellinformationen</h2>
+        <p className="mt-2 text-gray-600">Vom Pflücken bis zur Lieferung in die Schweiz dauert der gesamte
+          Ablauf <b>fünf</b> Tage, wobei alle Schritte auf Frische, Qualität und Effizienz
+          ausgerichtet sind.
+        </p>
+        <p className="mt-4 text-gray-600 text-md">
+          Die <b>Zahlung</b> erfolgt bei Abholung in <b>bar</b> oder per <b>Banküberweisung</b>.
+          In Ausnahmefällen kann die Zahlung über <b>Twint</b> erfolgen.
+        </p>
+        <h2 className="mt-4 text-lg">
+          Abholort: Rietstrasse 28, 8733 Eschenbach
+        </h2>
+        <button onClick={goToOrder} className="mt-6 w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-lg transition-colors duration-300">
+          Jetzt bestellen
+        </button>
+      </section>
+
       {/* Produkte Section */}
       <section className="my-10 max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
         <h2 className="text-3xl font-semibold text-gray-800">Unsere Produkte</h2>
@@ -102,25 +121,6 @@ const BioOrangen = () => {
             </SwiperSlide>
           </Swiper>
         </div>
-      </section>
-
-      {/* Bestellinformationen Section */}
-      <section className="my-10 max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
-        <h2 className="text-3xl font-semibold text-gray-800">Bestellinformationen</h2>
-        <p className="mt-2 text-gray-600">Vom Pflücken bis zur Lieferung in die Schweiz dauert der gesamte
-          Ablauf <b>fünf</b> Tage, wobei alle Schritte auf Frische, Qualität und Effizienz
-          ausgerichtet sind.
-        </p>
-        <p className="mt-4 text-gray-600 text-md">
-          Die <b>Zahlung</b> erfolgt bei Abholung in <b>bar</b> oder per <b>Banküberweisung</b>.
-          In Ausnahmefällen kann die Zahlung über <b>Twint</b> erfolgen.
-        </p>
-        <h2 className="mt-4 text-lg">
-          Abholort: Rietstrasse 28, 8733 Eschenbach
-        </h2>
-        <button onClick={goToOrder} className="mt-6 w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-lg transition-colors duration-300">
-          Jetzt bestellen
-        </button>
       </section>
 
       {/* Lagerungstips Section */}

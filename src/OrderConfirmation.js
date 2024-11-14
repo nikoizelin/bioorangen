@@ -80,10 +80,10 @@ const OrderConfirmation = () => {
     };
   
     emailjs.send(
-      'service_yd55u65',  // Replace with your EmailJS service ID
-      'template_0ziy528', // Replace with your EmailJS template ID
+      process.env.REACT_APP_SERVICE_ID,  // Replace with your EmailJS service ID
+      process.env.REACT_APP_TEMPLATE_ID, // Replace with your EmailJS template ID
       emailParams,
-      'uXmxgrYupsKRx-jDD'      // Replace with your EmailJS user ID
+      process.env.REACT_APP_PUBLIC_KEY      // Replace with your EmailJS user ID
     )
     .then(response => {
       console.log('Email sent successfully!', response.status, response.text);
