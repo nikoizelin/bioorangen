@@ -83,7 +83,7 @@ const BioOrangen = () => {
       <section className="my-10 max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
         <h2 className="text-3xl font-semibold text-gray-800">Unsere Geschichte</h2>
         <p className="mt-4 text-gray-600">
-        Claudia aus der Schweiz und Rosy aus demSüdtirol haben gemeinsam
+        Claudia aus der Schweiz und Rosy aus dem Südtirol haben gemeinsam
         2011 in Sizilien eine Orangenplantage erworben und mit grossem
         Engagement zu dem Erfolg gemacht, der sie heute ist. Auf der Plantage
         werden ausschliesslich Bio-Produkte angebaut. Im Sortiment bieten sie
@@ -103,7 +103,12 @@ const BioOrangen = () => {
           <Swiper
             modules={[Pagination]}
             spaceBetween={16}
-            slidesPerView={2}
+            slidesPerView={1}
+            breakpoints={{
+              768: {
+                slidesPerView: 2,
+              },
+            }}
             pagination={{ clickable: true }}
             className="w-full h-64"
           >
