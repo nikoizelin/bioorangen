@@ -59,7 +59,7 @@ const Confirmation = () => {
       <div className="bg-white rounded-lg shadow-md hover:shadow-lg p-6 mb-8">
         <h3 className="text-2xl font-semibold text-gray-700 mb-4">Zahlung</h3>
           <p className="text-gray-500">Bitte überweise den offenen Betrag per Banküberweisung an</p>
-          <p>CH56 0483 5012 3456 7800 9</p>
+          <p>CH68 8080 8004 3110 3254 2</p>
           <p>Cornelia Helbling</p>
           <p>Rietstrasse 28</p>
           <p>8733 Eschenbach SG</p>
