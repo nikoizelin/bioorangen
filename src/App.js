@@ -43,10 +43,10 @@ function App() {
               path="/admin"
               element={<Admin />}
           />
-          <Route
+          {/*<Route
               path="/order"
               element={<OrderStepper />}
-          />
+          />*/}
           <Route
               path="/order-confirmation"
               element={<OrderConfirmation />}

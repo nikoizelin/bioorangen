@@ -11,7 +11,7 @@ const BioOrangen = () => {
     const navigate = useNavigate();
 
   const goToOrder=()=>{
-    navigate("/order");
+    {/*navigate("/order");*/}
   }
   const goToAdmin=()=>{
     navigate("/admin");
@@ -43,8 +43,8 @@ const BioOrangen = () => {
         <h2 className="mt-4 text-lg">
           Abholort: Rietstrasse 28, 8733 Eschenbach
         </h2>
-        <button onClick={goToOrder} className="mt-6 w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-lg transition-colors duration-300">
-          Jetzt bestellen
+        <button disabled="true" onClick={goToOrder} className="mt-6 w-full bg-gray-500 hover:bg-gray-600 text-white font-semibold py-3 rounded-lg transition-colors duration-300">
+          Ausverkauft!
         </button>
       </section>
 
