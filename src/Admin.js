@@ -18,7 +18,9 @@ const Admin = () => {
   // Bestellungen aus Firestore abrufen
   const fetchOrders = async () => {
     const q = searchQuery
-      ? query(collection(db, "orders"), where("customer.name", ">=", searchQuery))
+      ? query(collection(db, "orders"), 
+      where("customer.name".toLowerCase(), ">=", searchQuery),
+      where("customer.name".toLowerCase(), "<=", searchQuery + '\uf8ff'))
       : collection(db, "orders");
 
     try {

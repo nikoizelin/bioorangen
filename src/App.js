@@ -14,19 +14,6 @@ import Login from './Login.js';
 import Logout from './Logout.js';
 
 function App() {
-  useEffect(() => {
-    // Clear localStorage when the browser window or tab is closed
-    const handleUnload = () => {
-      //localStorage.clear();
-    };
-
-    window.addEventListener('beforeunload', handleUnload);
-
-    // Clean up the event listener on component unmount
-    return () => {
-      window.removeEventListener('beforeunload', handleUnload);
-    };
-  }, []);
 
   return (
     <div>    
@@ -43,10 +30,10 @@ function App() {
               path="/admin"
               element={<Admin />}
           />
-          {/*<Route
+          {<Route
               path="/order"
               element={<OrderStepper />}
-          />*/}
+          />}
           <Route
               path="/order-confirmation"
               element={<OrderConfirmation />}

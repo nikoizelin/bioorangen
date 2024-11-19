@@ -99,27 +99,16 @@ const OrderConfirmation = () => {
 
     setCart(savedCart);
     setPersonalInfo(savedPersonalInfo);
-
-    const handleUnload = () => {
-        localStorage.removeItem('cart');
-      };
-  
-      window.addEventListener('beforeunload', handleUnload);
-  
-      // Clean up the event listener on component unmount
-      return () => {
-        window.removeEventListener('beforeunload', handleUnload);
-      };
-
   }, []);
 
-  if(personalInfo != null && cart.length > 0 && i===0) {
+  if(personalInfo !== null && cart.length > 0 && i===0) {
     i++;
     sendConfirmationEmail(personalInfo, cart);
     handleOrderConfirmation(personalInfo, cart);
+    localStorage.removeItem('cart');
     }
     else {
-        //alert("Es ist ein Fehler aufgetreten. Bitte versuche es erneut.");
+        alert("Es ist ein Fehler aufgetreten. Bitte versuche es erneut.");
     }
 
 
