@@ -23,6 +23,10 @@ code {
   color: red;
 }
 
+.swiper-pagination-bullet-active {
+  background-color:#ea580c !important;
+}
+
 @media screen and (max-width: 767px) {
   .px-6, .pl-8, .pr8 {
     padding-left: 10px;

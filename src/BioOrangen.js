@@ -11,7 +11,7 @@ const BioOrangen = () => {
     const navigate = useNavigate();
 
   const goToOrder=()=>{
-    {/*navigate("/order");*/}
+    navigate("/order");
   }
   const goToAdmin=()=>{
     navigate("/admin");
@@ -31,64 +31,105 @@ const BioOrangen = () => {
       <div className="p-4">
       {/* Bestellinformationen Section */}
       <section className="my-10 max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
-        <h2 className="text-3xl font-semibold text-gray-800">Bestellinformationen</h2>
-        <p className="mt-2 text-gray-600">Vom Pflücken bis zur Lieferung in die Schweiz dauert der gesamte
+        <h2 className="text-3xl font-semibold">Bestellinformationen</h2>
+        <p className="mt-2">Vom Pflücken bis zur Lieferung in die Schweiz dauert der gesamte
           Ablauf <b>fünf</b> Tage, wobei alle Schritte auf Frische, Qualität und Effizienz
           ausgerichtet sind.
         </p>
-        <p className="mt-4 text-gray-600 text-md">
+        <p className="mt-4 text-md">
           Die <b>Zahlung</b> erfolgt bei Abholung in <b>bar</b> oder per <b>Banküberweisung</b>.
           In Ausnahmefällen kann die Zahlung über <b>Twint</b> erfolgen.
         </p>
-        <h2 className="mt-4 text-lg">
-          Abholort: Rietstrasse 28, 8733 Eschenbach
+        <div className="mt-4 mb-4 grid grid-cols-1 md:grid-cols-2">
+        <p className="mb-4 md:mb-0"><b>Banküberweisung:</b><br></br>
+          CH68 8080 8004 3110 3254 2<br></br>
+          Cornelia Helbling<br></br>
+          Rietstrasse 28<br></br>
+          8733 Eschenbach SG<br></br>
+        </p>
+        <p><b>Twint:</b><br></br>
+          Cornelia Helbling<br></br>
+          079 488 06 39
+        </p>
+        </div>
+        <h2 className="text-lg">
+          Abholort: Rietstrasse 28, 8733 Eschenbach<br></br>
         </h2>
-        <button disabled="true" onClick={goToOrder} className="mt-6 w-full bg-gray-500 hover:bg-gray-600 text-white font-semibold py-3 rounded-lg transition-colors duration-300">
-          Ausverkauft!
+        <button onClick={goToOrder} className="mt-6 w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-lg transition-colors duration-300">
+          Jetzt bestellen!
         </button>
       </section>
 
       {/* Produkte Section */}
       <section className="my-10 max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
-        <h2 className="text-3xl font-semibold text-gray-800">Unsere Produkte</h2>
+        <h2 className="text-3xl font-semibold">Unsere Produkte</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
           <div>
             <img src={require('./images/bioorangen15.jpg')} alt="Orangen" className="w-full h-64 object-cover rounded-lg shadow-md mb-2" />
             <h3 className="text-xl font-bold text-orange-600">Orangen</h3>
-            <p>Erntezeit: Mitte November bis Mitte März</p>
-            <p>Sorten: Navelina (Mitte November), Tarocco (Mitte Dezember – Mitte März)</p>
-            <p>Preis: 1 Harass (16-19 kg) - 45,00 CHF | ½ Harass (8-9 kg) - 22,50 CHF</p>
+            <p className="mb-1"><b>Erntezeit:</b><br></br>Mitte November bis Mitte März</p>
+            <p><b>Preis:</b></p>
+              <div className="grid grid-cols-3 md:pr-32">
+                <p>½ Harass</p><p>(8-9 kg)</p><p>22,50 CHF</p>
+              </div>
+              <div className="grid grid-cols-3 md:pr-32">
+                <p>1 Harass</p><p>(16-19 kg)</p><p>45,00 CHF</p>
+              </div>
           </div>
           <div>
             <img src={require('./images/bioorangen6.jpg')} alt="Zitronen" className="w-full h-64 object-cover rounded-lg shadow-md mb-2" />
             <h3 className="text-xl font-bold text-orange-600">Zitronen</h3>
-            <p>Erntezeit: Ende Dezember bis März</p>
-            <p>Preis: 1 Harass (16-19 kg) - 64,00 CHF | ½ Harass (8-9 kg) - 32,00 CHF | Per Kilo - 4,00 CHF</p>
+            <p className="mb-1"><b>Erntezeit:</b><br></br>Ende Dezember bis März</p>
+            <p><b>Preis:</b></p>
+              <div className="grid grid-cols-3 md:pr-32">
+                <p>Per Kilo</p><p></p><p>4,00 CHF</p>
+              </div>
+              <div className="grid grid-cols-3 md:pr-32">
+                <p>½ Harass</p><p>(8-9 kg)</p><p>32,00 CHF</p>
+              </div>
+              <div className="grid grid-cols-3 md:pr-32">
+                <p>1 Harass</p><p>(16-19 kg)</p><p>64,00 CHF</p>
+              </div>
           </div>
           <div>
             <img src={require('./images/bioorangen4.jpg')} alt="Mandarinen" className="w-full h-64 object-cover rounded-lg shadow-md mb-2" />
             <h3 className="text-xl font-bold text-orange-600">Mandarinen</h3>
-            <p>Erntezeit: Mitte November bis Ende Januar</p>
-            <p>Preis: 1 Harass (16-19 kg) - 56,00 CHF | ½ Harass (8-9 kg) - 28,00 CHF | Per Kilo - 3,50 CHF</p>
+            <p className="mb-1"><b>Erntezeit:</b><br></br>Mitte November bis Ende Januar</p>
+            <p><b>Preis:</b></p>
+              <div className="grid grid-cols-3 md:pr-32">
+                <p>Per Kilo</p><p></p><p>3,50 CHF</p>
+              </div>
+              <div className="grid grid-cols-3 md:pr-32">
+                <p>½ Harass</p><p>(8-9 kg)</p><p>28,00 CHF</p>
+              </div>
+              <div className="grid grid-cols-3 md:pr-32">
+                <p>1 Harass</p><p>(16-19 kg)</p><p>56,00 CHF</p>
+              </div>
           </div>
           <div>
             <img src={require('./images/bioorangen17.jpg')} alt="Olivenöl" className="w-full h-64 object-cover rounded-lg shadow-md mb-2" />
             <h3 className="text-xl font-bold text-orange-600">Bio-Olivenöl</h3>
-            <p>Preis: 0.75 L - 24,00 CHF | 5 Liter Kanister - 130,00 CHF</p>
+            <p><b>Preis:</b></p>
+              <div className="grid grid-cols-2 md:pr-32">
+                <p>0.75 L</p><p>24,00 CHF</p>
+              </div>
+              <div className="grid grid-cols-2 md:pr-32">
+                <p>5.0 L</p><p>130,00 CHF</p>
+              </div>
           </div>
         </div>
       </section>
 
       {/* Story Section */}
       <section className="my-10 max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
-        <h2 className="text-3xl font-semibold text-gray-800">Unsere Geschichte</h2>
-        <p className="mt-4 text-gray-600">
-        Claudia aus der Schweiz und Rosy aus dem Südtirol haben gemeinsam
+        <h2 className="text-3xl font-semibold">Unsere Geschichte</h2>
+        <p className="mt-4">
+        <b>Claudia</b> aus der Schweiz und <b>Rosy</b> aus dem Südtirol haben gemeinsam
         2011 in Sizilien eine Orangenplantage erworben und mit grossem
         Engagement zu dem Erfolg gemacht, der sie heute ist. Auf der Plantage
-        werden ausschliesslich Bio-Produkte angebaut. Im Sortiment bieten sie
+        werden ausschliesslich <b>Bio-Produkte</b> angebaut. Im Sortiment bieten sie
         frische Orangen, Zitronen, Mandarinen und hochwertiges Olivenöl an.
-        Hinter diesem Projekt steckt jede Menge Power und Herzblut, mit dem die
+        Hinter diesem Projekt steckt jede Menge <b>Power und Herzblut</b>, mit dem die
         beiden Frauen ihre Vision für nachhaltige Landwirtschaft verwirklichen.
         </p>
 
@@ -130,21 +171,21 @@ const BioOrangen = () => {
 
       {/* Lagerungstips Section */}
       <section className="my-10 max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
-        <h2 className="text-3xl font-semibold text-gray-800">Lagerungstipps für Orangen</h2>
-        <p className="mt-4 text-gray-600">
+        <h2 className="text-3xl font-semibold">Lagerungstipps für Orangen</h2>
+        <p className="mt-4 mb-4">
         Orangen bleiben am besten frisch, wenn du sie richtig lagerst.<br></br>Hier sind ein paar 
-        <b> Tipps:</b><br></br>
+        <b> Tipps:</b><br></br></p>
         <ol className="list-decimal list-inside	">
-        <li>Prüfen sie nach Erhalt ihrer Früchte auf Druckstellen und Beschädigungen geniessen
+        <li className="mb-4">Prüfen sie nach Erhalt ihrer Früchte auf <b>Druckstellen</b> und Beschädigungen geniessen
         sie diese als erste.</li>
-        <li>Staple Orangen möglichst nicht übereinander.</li>
-        <li>Die optimale Lagertemperatur für Orangen liegt zwischen 3 und 9 Grad Celsius. Die
+        <li className="mb-4">Staple Orangen möglichst <b>nicht übereinander.</b></li>
+        <li className="mb-4">Die optimale Lagertemperatur für Orangen liegt zwischen <b>3 und 9 Grad Celsius</b>. Die
         Früchte können auch im Aussenbereich gelagert werden, idealerweise jedoch mit
-        einer schützenden Decke oder in einer Styroporkiste, in der sie lagenweise mit Stroh
+        einer schützenden Decke oder in einer <b>Styroporkiste</b>, in der sie lagenweise mit Stroh
         oder Zeitungspapier getrennt sind. Direkte Sonneneinstrahlung sollte dabei
         unbedingt vermieden werden.</li>
         </ol>
-        <b>Regelmässig kontrollieren:</b> Überprüfe deine Orangen regelmässig auf Druckstellen
+        <p><b>Regelmässig kontrollieren:</b> Überprüfe deine Orangen regelmässig auf Druckstellen
         oder Schimmel. Manchmal reicht eine schlechte Orange, um die anderen schneller
         verderben zu lassen
         </p>
@@ -152,7 +193,7 @@ const BioOrangen = () => {
       </div>
 
       {/* Footer */}
-      <footer className="text-center py-8 text-gray-500">
+      <footer className="text-center py-8">
         © <a onClick={goToAdmin} >BioOrangen.ch </a> | Rietrasse 28, 8733 Eschenbach
       </footer>
     </div>

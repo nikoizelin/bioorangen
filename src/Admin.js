@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { db, auth } from "./firebaseConfig";
-import { collection, getDocs, query, where, doc, updateDoc } from "firebase/firestore";
+import { collection, getDocs, query, where, doc, updateDoc, orderBy } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import Logout from "./Logout";
@@ -21,7 +21,9 @@ const Admin = () => {
       ? query(collection(db, "orders"), 
       where("customer.name".toLowerCase(), ">=", searchQuery),
       where("customer.name".toLowerCase(), "<=", searchQuery + '\uf8ff'))
-      : collection(db, "orders");
+      : query(collection(db, "orders"),
+      orderBy("customer.name", "asc"));
+
 
     try {
       const querySnapshot = await getDocs(q);

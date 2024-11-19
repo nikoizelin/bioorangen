@@ -113,7 +113,7 @@ const OrderConfirmation = () => {
 
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100 p-2">
     {personalInfo !== null && cart.length > 0 ? (
       <>
       {/* Animierter Haken */}
@@ -124,7 +124,7 @@ const OrderConfirmation = () => {
         Hey {personalInfo.name}, Deine Bestellung ist bestätigt!
       </h2>
       <p className="text-gray-600 mt-2 text-center">
-        Vielen Dank für deine Bestellung! Du solltest in Kürze eine Bestätigung per E-Mail.
+        Vielen Dank für deine Bestellung! Du solltest in Kürze eine Bestätigung per E-Mail erhalten.
       </p>
       <a href="/" className="text-orange-600 hover:underline mt-2 text-center">
         zurück zur Homepage
@@ -138,7 +138,7 @@ const OrderConfirmation = () => {
         Oh nein, es ist ein Fehler aufgetreten :/
       </h2>
       <p className="text-gray-600 mt-2 text-center">
-        Versuche nochmal deine Bestellung aufzugeben oder melde dich unter <a href="mailto:contactkandykrush@gmail.com" className="text-orange-600 hover:underline">Mail</a>
+        Versuche nochmal deine Bestellung aufzugeben oder melde dich unter <a href="mailto:nicojann.iselin@gmail.com" className="text-orange-600 hover:underline">Mail</a>
       </p>
       <a href="/order" className="text-orange-600 hover:underline mt-2 text-center">
         zurück zur Bestellung
