@@ -23,7 +23,7 @@ const OrderConfirmation = () => {
       preserveAspectRatio: 'xMidYMid slice'
     }
   };
-  let i= 0;
+  let i = 0;
   const [cart, setCart] = useState([]);
   const [personalInfo, setPersonalInfo] = useState({});
 
@@ -108,13 +108,13 @@ const OrderConfirmation = () => {
     localStorage.removeItem('cart');
     }
     else {
-        alert("Es ist ein Fehler aufgetreten. Bitte versuche es erneut.");
+        console.log("Es ist ein Fehler aufgetreten. Bitte versuche es erneut.");
     }
 
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-    {personalInfo != null && cart.length > 0 ? (
+    {personalInfo !== null && cart.length > 0 ? (
       <>
       {/* Animierter Haken */}
       <Lottie options={defaultOptions} height={150} width={150} />
