@@ -30,14 +30,14 @@ function App() {
               path="/admin"
               element={<Admin />}
           />
-          {<Route
+          {/*<Route
               path="/order"
               element={<OrderStepper />}
-          />}
-          <Route
+          />*/}
+          {/*<Route
               path="/order-confirmation"
               element={<OrderConfirmation />}
-          />
+          />*/}
           <Route
               path="/login"
               element={<Login />}

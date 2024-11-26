@@ -11,7 +11,7 @@ const BioOrangen = () => {
     const navigate = useNavigate();
 
   const goToOrder=()=>{
-    navigate("/order");
+    //navigate("/order");
   }
   const goToAdmin=()=>{
     navigate("/admin");
@@ -40,6 +40,9 @@ const BioOrangen = () => {
           Die <b>Zahlung</b> erfolgt bei Abholung in <b>bar</b> oder per <b>Banküberweisung</b>.
           In Ausnahmefällen kann die Zahlung über <b>Twint</b> erfolgen.
         </p>
+        <p className="mt-4 text-md">
+          Nächster Bestelltermin ist am 19. Dezember 2024. Die darauffolgende Lieferung ist ca. am 8. Januar 2025.
+        </p>
         <div className="mt-4 mb-4 grid grid-cols-1 md:grid-cols-2">
         <p className="mb-4 md:mb-0"><b>Banküberweisung:</b><br></br>
           CH68 8080 8004 3110 3254 2<br></br>
@@ -55,8 +58,8 @@ const BioOrangen = () => {
         <h2 className="text-lg">
           Abholort: Rietstrasse 28, 8733 Eschenbach<br></br>
         </h2>
-        <button onClick={goToOrder} className="mt-6 w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-lg transition-colors duration-300">
-          Jetzt bestellen!
+        <button onClick={goToOrder} className="mt-6 w-full bg-gray-500 hover:bg-gray-600 text-white font-semibold py-3 rounded-lg transition-colors duration-300">
+          Ausverkauft! Nächster Bestelltermin: 19. Dezember 2024
         </button>
       </section>
 
