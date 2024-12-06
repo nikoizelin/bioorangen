@@ -4,6 +4,7 @@ import { collection, getDocs, query, where, doc, updateDoc, orderBy } from "fire
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import Logout from "./Logout";
+import OrderDeactivateButton from "./OrderDeactivate";
 
 
 const Admin = () => {
@@ -22,7 +23,7 @@ const Admin = () => {
       where("customer.name".toLowerCase(), ">=", searchQuery),
       where("customer.name".toLowerCase(), "<=", searchQuery + '\uf8ff'))
       : query(collection(db, "orders"),
-      orderBy("customer.name", "asc"));
+      orderBy("bezahlt", "asc"));
 
 
     try {
@@ -34,10 +35,10 @@ const Admin = () => {
     }
   };
 
-  {/* get DocumentId from Dataset where id is set */}
+  /* get DocumentId from Dataset where id is set */
   const getDocumentIdFromValueId = async (idValue) => {
     try {
-      const q = query(collection(db, "orders"), where("id", "==", idValue));
+      const q = query(collection(db, "orders"), where("id", "==", idValue))
       const querySnapshot = await getDocs(q);
   
       if (!querySnapshot.empty) {
@@ -56,6 +57,7 @@ const Admin = () => {
 
   useEffect(() => {
     fetchOrders();
+    console.log(`Bestellungen mit Suche ${searchQuery} geladen.`);
   }, [searchQuery]); // Neue Abfrage, wenn sich die Suche ändert
 
   // Popup-Handling
@@ -91,6 +93,28 @@ const Admin = () => {
     }
   };
 
+  // Update-Handler für den bezahlt-Status
+  const handleAbgeholtStatusChange = async (orderId, currentAbgeholtStatus) => {
+    try {
+      const documentID = await getDocumentIdFromValueId(orderId);
+      if (documentID) {
+      // Datenbank-Update
+      const orderRef = doc(db, "orders", documentID);
+      await updateDoc(orderRef, { abgeholt: !currentAbgeholtStatus });
+      }
+      // Lokale Liste aktualisieren
+      setOrders((prevOrders) =>
+        prevOrders.map((order) =>
+          order.id === orderId ? { ...order, abgeholt: !currentAbgeholtStatus } : order
+        )
+      );
+
+      console.log(`Bestellung ${orderId} als abgeholt markiert.`);
+    } catch (error) {
+      console.error("Fehler beim Aktualisieren des abgeholt-Status:", error);
+    }
+  };
+
   
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -110,6 +134,8 @@ const Admin = () => {
   }
 
   let productAmounts = {};
+  let flaschen = 0;
+  let kanister = 0;
 
   
   orders.forEach(orderData => {
@@ -122,19 +148,28 @@ const Admin = () => {
         } else {
             productAmounts[productId] = amount;
         }
-    })
+
+        if(productId === 4){
+          if(productAmounts[productId] === 5){
+            kanister++;
+          } else {
+            flaschen++;
+          }
+        }
+    })     
 });
 
 
-  return (
+  return ( 
     <div className="p-6">
-      <Logout />
+      <Logout /> <OrderDeactivateButton />
       <h1 className="text-2xl font-bold mb-4">Admin - Bestellübersicht</h1>
             {/* Total-Kilo */}
             <div className="my-4">
-        Total Kilo Orangen: <b>{productAmounts[1] != null ? productAmounts[1] : 0 } kg = {productAmounts[1] / 16} Harassen</b><br></br>
-        {/*Total Kilo Zitronen: <b>{productAmounts[2] != null ? productAmounts[2] : 0 } kg = {productAmounts[2] / 16} Harassen</b><br></br>*/}
-        {/*Total Kilo Mandarinen: <b>{productAmounts[3] != null ? productAmounts[3] : 0 } kg = {productAmounts[3] / 16} Harassen</b><br></br>*/}
+        <p>Total Kilo Orangen: <b>{productAmounts[1] != null ? productAmounts[1] : 0 } kg = {productAmounts[1] != null ? productAmounts[1] / 16 : 0} Harassen</b></p>
+        <p>Total Kilo Zitronen: <b>{productAmounts[2] != null ? productAmounts[2] : 0 } kg = {productAmounts[2] != null ? productAmounts[2] / 16 : 0} Harassen</b></p>
+        <p>Total Kilo Mandarinen: <b>{productAmounts[3] != null ? productAmounts[3] : 0 } kg = {productAmounts[3] != null ? productAmounts[3] / 16 : 0} Harassen</b></p>
+        <p>Total Olivenöl: <b>{productAmounts[4] != null ? productAmounts[4] : 0} L = {flaschen} Flaschen, {kanister} Kanister</b> </p>
       </div>
       {/* Suchfeld */}
       <input
@@ -153,6 +188,7 @@ const Admin = () => {
             <th className="p-3 text-left">Telefon</th>
             <th className="p-3 text-left">Ort</th>
             <th className="p-3 text-left">Bezahlt</th>
+            <th className="p-3 text-left">Abgeholt</th>
             <th className="p-3 text-left">Zeit</th>
             <th className="p-3 text-left">Aktion</th>
           </tr>
@@ -169,6 +205,14 @@ const Admin = () => {
                   type="checkbox"
                   checked={order.bezahlt}
                   onChange={() => handlePaidStatusChange(order.id, order.bezahlt)}
+                />
+              </td>
+              <td className="p-3">
+                <input
+                  className="w-6 h-6"
+                  type="checkbox"
+                  checked={order.abgeholt}
+                  onChange={() => handleAbgeholtStatusChange(order.id, order.abgeholt)}
                 />
               </td>
               <td className="p-3">{new Date(order.timestamp?.seconds * 1000).toLocaleString()}</td>

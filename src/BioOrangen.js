@@ -1,21 +1,45 @@
-import { Link } from "react-router-dom";
-import logo from './o_logo_icon.png';
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
+import { db } from "./firebaseConfig";
+import { collection, getDocs, query } from "firebase/firestore";
+
 
 
 const BioOrangen = () => {
-    const navigate = useNavigate();
+  const [deactivated, setDeactivated] = useState([]);
+
+  // Deaktivert Status aus Firestore abrufen
+  const fetchDeactivated = async () => {
+    const q = query(collection(db, "deactivated"));
+
+    try {
+      const querySnapshot = await getDocs(q);
+      const deactivatedData = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      setDeactivated(deactivatedData);
+    } catch (error) {
+      console.error("Fehler beim Abrufen der Bestellungen:", error);
+    }
+  };
+
+  const isDeactivated = deactivated[0]?.deactivated;
+
+  const navigate = useNavigate();
 
   const goToOrder=()=>{
-    //navigate("/order");
+    isDeactivated ? navigate("/order") : navigate("/");
   }
   const goToAdmin=()=>{
     navigate("/admin");
   }
+
+  useEffect(() => {
+    fetchDeactivated();
+  }, []);
+
     
     return (
       <div className="bg-orange-100">
@@ -41,7 +65,7 @@ const BioOrangen = () => {
           In Ausnahmefällen kann die Zahlung über <b>Twint</b> erfolgen.
         </p>
         <p className="mt-4 text-md">
-          Nächster Bestelltermin ist am 19. Dezember 2024. Die darauffolgende Lieferung ist ca. am 8. Januar 2025.
+          Nächster Bestelltermin ist am 13. Dezember 2024. Die darauffolgende Lieferung ist ca. am 8. Januar 2025.
         </p>
         <div className="mt-4 mb-4 grid grid-cols-1 md:grid-cols-2">
         <p className="mb-4 md:mb-0"><b>Banküberweisung:</b><br></br>
@@ -58,8 +82,8 @@ const BioOrangen = () => {
         <h2 className="text-lg">
           Abholort: Rietstrasse 28, 8733 Eschenbach<br></br>
         </h2>
-        <button onClick={goToOrder} className="mt-6 w-full bg-gray-500 hover:bg-gray-600 text-white font-semibold py-3 rounded-lg transition-colors duration-300">
-          Ausverkauft! Nächster Bestelltermin: 19. Dezember 2024
+        <button onClick={goToOrder} className={"mt-6 w-full text-white font-semibold py-3 rounded-lg transition-colors duration-300 " + (isDeactivated ? 'bg-orange-500 hover:bg-orange-600' : 'bg-gray-500 hover:bg-gray-600')}>
+          {isDeactivated ? "Jetzt bestellen!" : "Ausverkauft! Nächster Bestelltermin: 13. Dezember 2024"}
         </button>
       </section>
 

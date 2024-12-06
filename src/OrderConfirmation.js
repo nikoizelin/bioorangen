@@ -42,12 +42,6 @@ const OrderConfirmation = () => {
   }, []);
   */
 
-  const calcTotalPrice = (cart) => {
-    let totalPrice = cart
-    .reduce((sum, item) => sum + item.price * item.amount, 0)
-    .toFixed(2);
-    return totalPrice
-  }
 
   const saveOrderToFirestore = async (personalInfo, cart) => {
     try {
@@ -55,7 +49,8 @@ const OrderConfirmation = () => {
         id: Math.floor(Math.random() * 999999) + 1,  // here should be the docRef
         customer: personalInfo,
         order: cart,
-        bezahlt: false,  // Standardmäßig auf false setzen
+        bezahlt: false,  // Standardmässig auf false setzen
+        abgeholt: false,
         timestamp: serverTimestamp(),  // Automatischer Zeitstempel
       };
   
