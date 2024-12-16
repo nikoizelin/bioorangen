@@ -23,7 +23,7 @@ const Admin = () => {
       where("customer.name".toLowerCase(), ">=", searchQuery),
       where("customer.name".toLowerCase(), "<=", searchQuery + '\uf8ff'))
       : query(collection(db, "orders"),
-      orderBy("bezahlt", "asc"));
+      orderBy("customer.name", "asc"));
 
 
     try {
