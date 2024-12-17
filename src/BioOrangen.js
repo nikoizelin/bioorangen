@@ -65,7 +65,7 @@ const BioOrangen = () => {
           In Ausnahmefällen kann die Zahlung über <b>Twint</b> erfolgen.
         </p>
         <p className="mt-4 text-md">
-          Nächster Bestelltermin ist am 13. Dezember 2024. Die darauffolgende Lieferung ist ca. am 8. Januar 2025.
+          Die Lieferung ist am 8. Januar 2025 und die nächste Lieferung ist am 4. Februar 2025.
         </p>
         <div className="mt-4 mb-4 grid grid-cols-1 md:grid-cols-2">
         <p className="mb-4 md:mb-0"><b>Banküberweisung:</b><br></br>
