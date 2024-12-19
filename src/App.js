@@ -27,7 +27,7 @@ function App() {
       const deactivatedData = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
       setDeactivated(deactivatedData);
     } catch (error) {
-      console.error("Fehler beim Abrufen der Bestellungen:", error);
+      console.error("Fehler beim Abrufen der Deaktiverung:", error);
     }
   };
 
