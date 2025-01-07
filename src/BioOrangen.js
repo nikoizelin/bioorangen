@@ -161,11 +161,10 @@ const BioOrangen = () => {
         <p className="mt-4">
         <b>Claudia</b> aus der Schweiz und <b>Rosy</b> aus dem Südtirol haben gemeinsam
         2011 in Sizilien eine Orangenplantage erworben und mit grossem
-        Engagement zu dem Erfolg gemacht, der sie heute ist. Auf der Plantage
+        Engagement zu dem Erfolg gemacht. Auf der Plantage
         werden ausschliesslich <b>Bio-Produkte</b> angebaut. Im Sortiment bieten sie
         frische Orangen, Zitronen, Mandarinen und hochwertiges Olivenöl an.
-        Hinter diesem Projekt steckt jede Menge <b>Power und Herzblut</b>, mit dem die
-        beiden Frauen ihre Vision für nachhaltige Landwirtschaft verwirklichen.
+        Mit viel Power und Herzblut stehen sie für ihre nachhaltigen Landwirtschaftprodukte.
         </p>
 
         {/* Image Gallery */}
@@ -215,10 +214,8 @@ const BioOrangen = () => {
         sie diese als erste.</li>
         <li className="mb-4">Staple Orangen möglichst <b>nicht übereinander.</b></li>
         <li className="mb-4">Die optimale Lagertemperatur für Orangen liegt zwischen <b>3 und 9 Grad Celsius</b>. Die
-        Früchte können auch im Aussenbereich gelagert werden, idealerweise jedoch mit
-        einer schützenden Decke oder in einer <b>Styroporkiste</b>, in der sie lagenweise mit Stroh
-        oder Zeitungspapier getrennt sind. Direkte Sonneneinstrahlung sollte dabei
-        unbedingt vermieden werden.</li>
+        Früchte können auch im Aussenbereich gelagert werden. Idealerweise sollten sie mit einer Decke oder lose in
+        einer Styroporkiste vor direktem Sonnenlicht geschützt werden.</li>
         </ol>
         <p><b>Regelmässig kontrollieren:</b> Überprüfe deine Orangen regelmässig auf Druckstellen
         oder Schimmel. Manchmal reicht eine schlechte Orange, um die anderen schneller
