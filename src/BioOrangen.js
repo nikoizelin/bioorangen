@@ -61,11 +61,19 @@ const BioOrangen = () => {
           ausgerichtet sind.
         </p>
         <p className="mt-4 text-md">
-          Die <b>Zahlung</b> erfolgt bei Abholung in <b>bar</b> oder per <b>Banküberweisung</b>.
-          In Ausnahmefällen kann die Zahlung über <b>Twint</b> erfolgen.
+          Abholtermin für die Januar-Bestellung: <b>Freitag Nachmittag, 10. Januar 25</b>
         </p>
         <p className="mt-4 text-md">
-          Die Lieferung ist am 8. Januar 2025 und die nächste Lieferung ist am 4. Februar 2025.
+          Nächster Bestell- und Liefertermin: <b>Der Bestell-Link wird am 14.01.25 freigeschaltet<br></br>
+          Liefertemin ist am 05.02.25</b>
+        </p>
+        <p className="mt-4 text-md">
+          Vielen Dank und herzliche Grüsse <br></br>
+          Conny
+        </p>
+        <p className="mt-4 text-md">
+          Die <b>Zahlung</b> erfolgt bei Abholung in <b>bar</b> oder per <b>Banküberweisung</b>.
+          In Ausnahmefällen kann die Zahlung über <b>Twint</b> erfolgen.
         </p>
         <div className="mt-4 mb-4 grid grid-cols-1 md:grid-cols-2">
         <p className="mb-4 md:mb-0"><b>Banküberweisung:</b><br></br>
@@ -83,7 +91,7 @@ const BioOrangen = () => {
           Abholort: Rietstrasse 28, 8733 Eschenbach<br></br>
         </h2>
         <button onClick={goToOrder} className={"mt-6 w-full text-white font-semibold py-3 rounded-lg transition-colors duration-300 " + (isDeactivated ? 'bg-orange-500 hover:bg-orange-600' : 'bg-gray-500 hover:bg-gray-600')}>
-          {isDeactivated ? "Jetzt bestellen!" : "Ausverkauft! Nächster Liefertermin: 4. Februar 2025"}
+          {isDeactivated ? "Jetzt bestellen!" : "Ausverkauft! Nächster Liefertermin: 5. Februar 2025"}
         </button>
       </section>
 
