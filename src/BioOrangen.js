@@ -65,7 +65,7 @@ const BioOrangen = () => {
         </p>
         <p className="mt-4 text-md">
           Nächster Bestell- und Liefertermin: <b>Der Bestell-Link wird am 14.01.25 freigeschaltet<br></br>
-          Liefertemin ist am 05.02.25</b>
+          Liefertermin ist am 05.02.25</b>
         </p>
         <p className="mt-4 text-md">
           Vielen Dank und herzliche Grüsse <br></br>
