@@ -65,7 +65,7 @@ const BioOrangen = () => {
         </p>
         <p className="mt-4 text-md">
           Nächster Bestell- und Liefertermin: <b>Der Bestell-Link wird am 14.01.25 freigeschaltet<br></br>
-          Liefertermin ist am 05.02.25</b>
+          Liefertermin ist am 11.02.25</b>
         </p>
         <p className="mt-4 text-md">
           Vielen Dank und herzliche Grüsse <br></br>
@@ -91,7 +91,7 @@ const BioOrangen = () => {
           Abholort: Rietstrasse 28, 8733 Eschenbach<br></br>
         </h2>
         <button onClick={goToOrder} className={"mt-6 w-full text-white font-semibold py-3 rounded-lg transition-colors duration-300 " + (isDeactivated ? 'bg-orange-500 hover:bg-orange-600' : 'bg-gray-500 hover:bg-gray-600')}>
-          {isDeactivated ? "Jetzt bestellen!" : "Ausverkauft! Nächster Liefertermin: 5. Februar 2025"}
+          {isDeactivated ? "Jetzt bestellen!" : "Ausverkauft! Nächster Liefertermin: 11. Februar 2025"}
         </button>
       </section>
 
