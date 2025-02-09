@@ -61,11 +61,10 @@ const BioOrangen = () => {
           ausgerichtet sind.
         </p>
         <p className="mt-4 text-md">
-          Abholtermin für die Januar-Bestellung: <b>Freitag Nachmittag, 10. Januar 25</b>
+          Abholtermin für die Februar-Bestellung: <b>Dienstag Nachmittag ca. 13.00 Uhr, 11. Februar 25</b>
         </p>
         <p className="mt-4 text-md">
-          Nächster Bestell- und Liefertermin: <b>Der Bestell-Link wird am 14.01.25 freigeschaltet<br></br>
-          Liefertermin ist am 11.02.25</b>
+          Nächster Bestelltermin: <b> Evtl. März 2025</b>
         </p>
         <p className="mt-4 text-md">
           Vielen Dank und herzliche Grüsse <br></br>
@@ -91,7 +90,7 @@ const BioOrangen = () => {
           Abholort: Rietstrasse 28, 8733 Eschenbach<br></br>
         </h2>
         <button onClick={goToOrder} className={"mt-6 w-full text-white font-semibold py-3 rounded-lg transition-colors duration-300 " + (isDeactivated ? 'bg-orange-500 hover:bg-orange-600' : 'bg-gray-500 hover:bg-gray-600')}>
-          {isDeactivated ? "Jetzt bestellen!" : "Ausverkauft! Nächster Liefertermin: 11. Februar 2025"}
+          {isDeactivated ? "Jetzt bestellen!" : "Ausverkauft! Nächster Bestelltermin: Evtl. März 2025"}
         </button>
       </section>
 
