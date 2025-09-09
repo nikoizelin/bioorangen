@@ -150,7 +150,7 @@ const Admin = () => {
         }
 
         if(productId === 4){
-          if(productAmounts[productId] === 5){
+          if(productAmounts[productId] === "5"){
             kanister++;
           } else {
             flaschen++;
@@ -237,7 +237,15 @@ const Admin = () => {
             <ul>
               {selectedOrder.order.map((item, index) => (
                 <li key={index} className="border-b p-2">
+                  {item.productId === 4 ? (
+                <>
+                  {item.amount} L {item.name} = {(item.amount * item.price).toFixed(2)} CHF
+                </>
+              ) : (
+                <>
                   {item.amount} kg {item.name} = {(item.amount * item.price).toFixed(2)} CHF
+                </>
+              )}
                 </li>
               ))}
               <li className="border-t text-lg font-bold p-2">
