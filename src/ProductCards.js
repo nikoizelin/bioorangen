@@ -198,11 +198,13 @@ function ProductCard({ onItemSelected }) {
               ) : (
                 <>
                   <option selected value="">Menge auswählen</option>
-                  <option value={1}>1kg</option>
+                  { /* <option value={1}>1kg</option>
                   <option value={2}>2kg</option>
                   <option value={5}>5kg</option>
                   <option value={8}>½ Harass (8kg)</option>
-                  <option value={16}>1 Harass (16kg)</option>
+                  <option value={16}>1 Harass (16kg)</option> */}
+                  <option value={0.75}>0.75 L</option>
+                  <option value={5}>5 L</option>
                 </>
               )}
               </select>
