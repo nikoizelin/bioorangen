@@ -149,13 +149,12 @@ const Admin = () => {
         }
 
         if(productId === 4){
-          if(productAmounts[productId] === 5){
+          if(amount === 5){
             kanister++;
           } else {
             flaschen++;
           }
         }
-                console.log(productAmounts[productId]);
     })     
 });
 
