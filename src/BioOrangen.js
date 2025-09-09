@@ -61,13 +61,13 @@ const BioOrangen = () => {
           ausgerichtet sind.
         </p>
         <p className="mt-4 text-md">
-          Bestelltermin für das Olivenöl bis am 09. Oktober 2025.</b>
+          Bestelltermin für das Olivenöl bis am 09. Oktober 2025.
         </p>
         <p className="mt-4 text-md">
-          Das Bio Olivenöl wird Ende November, Anfangs Dezember geliefert</b>
+          Das Bio Olivenöl wird Ende November, Anfangs Dezember geliefert
         </p>
         <p className="mt-4 text-md">
-          Orangen können anfangs November bestellt werden.</b>
+          Orangen können anfangs November bestellt werden.
         </p>
         <p className="mt-4 text-md">
           Vielen Dank und herzliche Grüsse <br></br>
