@@ -142,7 +142,6 @@ const Admin = () => {
     orderData.order.forEach(order => {
         const productId = order.productId;
         const amount = parseFloat(order.amount); // sicherstellen, dass amount als Zahl behandelt wird
-
         if (productAmounts[productId]) {
             productAmounts[productId] += amount;
         } else {
@@ -150,12 +149,13 @@ const Admin = () => {
         }
 
         if(productId === 4){
-          if(productAmounts[productId] === "5"){
+          if(productAmounts[productId] === 5){
             kanister++;
           } else {
             flaschen++;
           }
         }
+                console.log(productAmounts[productId]);
     })     
 });
 
