@@ -102,8 +102,8 @@ const OrderConfirmation = () => {
 
   if(personalInfo !== null && cart.length > 0 && i===0) {
     i++;
-    //sendConfirmationEmail(personalInfo, cart);
-    //handleOrderConfirmation(personalInfo, cart);
+    sendConfirmationEmail(personalInfo, cart);
+    handleOrderConfirmation(personalInfo, cart);
     localStorage.removeItem('cart');
     }
     else {
