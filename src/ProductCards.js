@@ -42,11 +42,18 @@ function ProductCard({ onItemSelected }) {
 
   // Add selected product to cart
   const addToCart = () => {
+    // Default price
+  let finalPrice = selectedProduct.price;
+
+  // Spezialfall: Olivenöl (id 4) bei Menge 5 → 26 CHF pro Liter
+  if (selectedProduct.id === 4 && Number(selectedAmount) === 5) {
+    finalPrice = 26;
+  }
     const newCartItem = {
       id: `${selectedProduct.id}-${random}`, // Unique ID for each product-amount pair
       productId: selectedProduct.id,
       name: selectedProduct.name,
-      price: selectedProduct.price, 
+      price: finalPrice, 
       amount: selectedAmount,
     };
     selectedAmount = "";
