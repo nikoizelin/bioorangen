@@ -42,6 +42,10 @@ const OrderConfirmation = () => {
   }, []);
   */
 
+  //build cart
+  let cart_formatted = [];
+  
+
 
   const saveOrderToFirestore = async (personalInfo, cart) => {
     try {
@@ -98,8 +102,8 @@ const OrderConfirmation = () => {
 
   if(personalInfo !== null && cart.length > 0 && i===0) {
     i++;
-    sendConfirmationEmail(personalInfo, cart);
-    handleOrderConfirmation(personalInfo, cart);
+    //sendConfirmationEmail(personalInfo, cart);
+    //handleOrderConfirmation(personalInfo, cart);
     localStorage.removeItem('cart');
     }
     else {
@@ -109,6 +113,7 @@ const OrderConfirmation = () => {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100 p-2">
+      <p>{cart_formatted}</p>
     {personalInfo !== null && cart.length > 0 ? (
       <>
       {/* Animierter Haken */}
@@ -116,7 +121,7 @@ const OrderConfirmation = () => {
 
       {/* Bestätigungstext */}
       <h2 className="text-2xl font-semibold text-center text-green-600 mt-4">
-        Hey {personalInfo.name}, Deine Bestellung ist bestätigt!
+        Hey {personalInfo.name}, Deine Bestellung ist bestätigt! 
       </h2>
       <p className="text-gray-600 mt-2 text-center">
         Vielen Dank für deine Bestellung! Du solltest in Kürze eine Bestätigung per E-Mail erhalten.

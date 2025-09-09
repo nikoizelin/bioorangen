@@ -35,7 +35,7 @@ function App() {
     fetchDeactivated();
   }, []);
 
-  const isDeactivated = deactivated[0]?.deactivated;
+  const isDeactivated = true; //deactivated[0]?.deactivated;
 
   return (
     <div>    
