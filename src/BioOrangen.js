@@ -93,7 +93,7 @@ const BioOrangen = () => {
           Abholort: Rietstrasse 28, 8733 Eschenbach<br></br>
         </h2>
         <button onClick={goToOrder} className={"mt-6 w-full text-white font-semibold py-3 rounded-lg transition-colors duration-300 " + (isDeactivated ? 'bg-orange-500 hover:bg-orange-600' : 'bg-gray-500 hover:bg-gray-600')}>
-          {isDeactivated ? "Jetzt bestellen!" : "Ausverkauft! Nächster Bestelltermin: Evtl. März 2025"}
+          {isDeactivated ? "Jetzt bestellen!" : "Ausverkauft!"}
         </button>
       </section>
 

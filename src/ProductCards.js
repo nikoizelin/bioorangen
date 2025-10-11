@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 
 function ProductCard({ onItemSelected }) {
   const products = [
-    //{ id: 1, name: 'Orangen', price: 2.8125, image: require('./images/bioorangen16.jpg') },
-    //{ id: 2, name: 'Zitronen', price: 4.0, image: require('./images/bioorangen3.jpg') },
-    //{ id: 3, name: 'Mandarinen', price: 3.50, image: require('./images/bioorangen4.jpg') },
-    { id: 4, name: 'Olivenöl', price: 32.00, image: require('./images/bioorangen17.jpg') },
+    { id: 1, name: 'Orangen', price: 2.8125, image: require('./images/bioorangen16.jpg') },
+    { id: 2, name: 'Zitronen', price: 4.0, image: require('./images/bioorangen3.jpg') },
+    { id: 3, name: 'Mandarinen', price: 3.50, image: require('./images/bioorangen4.jpg') },
+    //{ id: 4, name: 'Olivenöl', price: 32.00, image: require('./images/bioorangen17.jpg') },
   ];
 
   const [selectedProduct, setSelectedProduct] = useState(null); // For modal popup
@@ -205,13 +205,13 @@ function ProductCard({ onItemSelected }) {
               ) : (
                 <>
                   <option selected value="">Menge auswählen</option>
-                  { /* <option value={1}>1kg</option>
+                  <option value={1}>1kg</option>
                   <option value={2}>2kg</option>
                   <option value={5}>5kg</option>
                   <option value={8}>½ Harass (8kg)</option>
-                  <option value={16}>1 Harass (16kg)</option> */}
-                  <option value={0.75}>0.75 L</option>
-                  <option value={5}>5 L</option>
+                  <option value={16}>1 Harass (16kg)</option>
+                  { /* <option value={0.75}>0.75 L</option>
+                  <option value={5}>5 L</option> */}
                 </>
               )}
               </select>
