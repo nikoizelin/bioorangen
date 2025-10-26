@@ -71,11 +71,19 @@ const OrderConfirmation = () => {
   const handleOrderConfirmation = async (personalInfo, cart) => {
     await saveOrderToFirestore(personalInfo, cart);
   };
+
+  // Einheit bestimmen (optional – hier Beispiel mit kg/l)
+const formatCart = cart.map(item => {
+  // Für Olivenöl "l", sonst "kg"
+  const unit = item.name.toLowerCase().includes("öl") ? "l" : "kg";
+  return `${item.amount}${unit} ${item.name}`;
+}).join(", ");
+
   const sendConfirmationEmail = (personalInfo, cart) => {
     const emailParams = {
       user_name: personalInfo.name,
       user_email: personalInfo.email,
-      cart_content: JSON.stringify(cart, null, 2)  // Format cart content for readability
+      cart_content: formatCart //{JSON.stringify(cart, null, 2)}  // Format cart content for readability
     };
   
     emailjs.send(
