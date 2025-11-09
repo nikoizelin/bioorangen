@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { db, auth } from "./firebaseConfig";
-import { collection, getDocs, query, where, doc, updateDoc, orderBy } from "firebase/firestore";
+import { collection, getDocs, getDoc, query, where, doc, updateDoc, orderBy } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import Logout from "./Logout";
@@ -13,6 +13,13 @@ const Admin = () => {
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [showCartPopup, setShowCartPopup] = useState(false);
   const [user, setUser] = useState(null);
+  const [productStatus, setProductStatus] = useState({
+      orangen: true,
+      zitronen: true,
+      mandarinen: true,
+      oliveoil: true,
+    });
+  const [homepageText, setHomepageText] = useState("");
 
   const navigate = useNavigate();
 
@@ -35,6 +42,71 @@ const Admin = () => {
     }
   };
 
+  const fetchHomepageText = async () => {
+    try {
+      // Referenz auf das Dokument "homepage" in der Collection "settings"
+      const docRef = doc(db, "settings", "homepage");
+  
+      // Dokument abrufen
+      const docSnap = await getDoc(docRef);
+  
+      if (docSnap.exists()) {
+        // Falls das Dokument existiert → Text auslesen
+        const data = docSnap.data();
+        console.log("Homepage Text:", data.homepagetext);
+        setHomepageText(data.homepagetext); // oder deinen State damit setzen
+      } else {
+        console.log("Kein Dokument 'homepage' gefunden!");
+      }
+    } catch (error) {
+      console.error("Fehler beim Abrufen des Homepage-Texts:", error);
+    }
+  };
+
+// Firestore-Daten laden
+  const fetchProductStatus = async () => {
+    try {
+      const docRef = doc(db, "settings", "products");
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        setProductStatus(docSnap.data());
+        console.log("Produktstatus geladen:", docSnap.data());
+      } else {
+        console.warn("❌ Kein 'products'-Dokument gefunden!");
+      }
+    } catch (error) {
+      console.error("Fehler beim Laden des Produktstatus:", error);
+    }
+  };
+
+// Firestore-Daten aktualisieren (z. B. per Klick)
+  const toggleProduct = async (key) => {
+    try {
+      const newStatus = !productStatus[key];
+      setProductStatus((prev) => ({ ...prev, [key]: newStatus }));
+
+      const docRef = doc(db, "settings", "products");
+      await updateDoc(docRef, { [key]: newStatus });
+
+      console.log(`${key} wurde auf ${newStatus} gesetzt.`);
+    } catch (error) {
+      console.error("Fehler beim Ändern des Produktstatus:", error);
+    }
+  };
+
+// Startseitentext speichern
+const saveHomepageText = async () => {
+  try {
+    await updateDoc(doc(db, "settings", "homepage"), {
+      text: homepageText,
+    });
+    alert("Startseitentext gespeichert!");
+  } catch (error) {
+    console.error("Fehler beim Speichern des Startseitentextes:", error);
+  }
+};
+
   /* get DocumentId from Dataset where id is set */
   const getDocumentIdFromValueId = async (idValue) => {
     try {
@@ -56,6 +128,8 @@ const Admin = () => {
   };
 
   useEffect(() => {
+    fetchHomepageText();
+    fetchProductStatus();
     fetchOrders();
     console.log(`Bestellungen mit Suche ${searchQuery} geladen.`);
   }, [searchQuery]); // Neue Abfrage, wenn sich die Suche ändert
@@ -162,6 +236,39 @@ const Admin = () => {
   return ( 
     <div className="p-6">
       <Logout /> <OrderDeactivateButton />
+<div className="my-6 p-4 bg-gray-100 rounded-lg shadow-md">
+      <h2 className="text-lg font-bold mb-4">Produkte verwalten</h2>
+      <div className="grid grid-cols-2 gap-3">
+        {Object.entries(productStatus).map(([key, value]) => (
+          <button
+            key={key}
+            onClick={() => toggleProduct(key)}
+            className={`px-4 py-2 rounded text-white ${
+              value ? "bg-green-500 hover:bg-green-600" : "bg-red-500 hover:bg-red-600"
+            }`}
+          >
+            {key.charAt(0).toUpperCase() + key.slice(1)}: {value ? "aktiv" : "inaktiv"}
+          </button>
+        ))}
+      </div>
+    </div>
+
+{/* === STARTSEITE TEXT === */}
+<div className="my-6 bg-white p-4 rounded-lg shadow">
+  <h2 className="text-xl font-semibold mb-3">Startseitentext bearbeiten</h2>
+  <textarea
+    value={homepageText}
+    onChange={(e) => setHomepageText(e.target.value)}
+    className="w-full border rounded p-2 h-24"
+  />
+  <button
+    onClick={saveHomepageText}
+    className="mt-2 bg-blue-500 text-white px-4 py-2 rounded"
+  >
+    Speichern
+  </button>
+</div>
+
       <h1 className="text-2xl font-bold mb-4">Admin - Bestellübersicht</h1>
             {/* Total-Kilo */}
             <div className="my-4">

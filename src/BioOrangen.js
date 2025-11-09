@@ -5,12 +5,13 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import { db } from "./firebaseConfig";
-import { collection, getDocs, query } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, query } from "firebase/firestore";
 
 
 
 const BioOrangen = () => {
   const [deactivated, setDeactivated] = useState([]);
+  const [homepageText, setHomepageText] = useState("");
 
   // Deaktivert Status aus Firestore abrufen
   const fetchDeactivated = async () => {
@@ -25,6 +26,27 @@ const BioOrangen = () => {
     }
   };
 
+  const fetchHomepageText = async () => {
+  try {
+    // Referenz auf das Dokument "homepage" in der Collection "settings"
+    const docRef = doc(db, "settings", "homepage");
+
+    // Dokument abrufen
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      // Falls das Dokument existiert → Text auslesen
+      const data = docSnap.data();
+      console.log("Homepage Text:", data.homepagetext);
+      setHomepageText(data.homepagetext); // oder deinen State damit setzen
+    } else {
+      console.log("Kein Dokument 'homepage' gefunden!");
+    }
+  } catch (error) {
+    console.error("Fehler beim Abrufen des Homepage-Texts:", error);
+  }
+};
+
   const isDeactivated = deactivated[0]?.deactivated;
 
   const navigate = useNavigate();
@@ -38,6 +60,7 @@ const BioOrangen = () => {
 
   useEffect(() => {
     fetchDeactivated();
+    fetchHomepageText();
   }, []);
 
     
@@ -60,9 +83,9 @@ const BioOrangen = () => {
           Ablauf <b>fünf</b> Tage, wobei alle Schritte auf Frische, Qualität und Effizienz
           ausgerichtet sind.
         </p>
-        <p className="mt-4 text-md">
-          Die Orangen und das Bio Olivenöl werden Ende November, Anfangs Dezember geliefert
-        </p>
+        <p className="database_text mt-4 text-md">
+        {homepageText}
+      </p>
         <p className="mt-4 text-md">
           Vielen Dank und herzliche Grüsse <br></br>
           Conny

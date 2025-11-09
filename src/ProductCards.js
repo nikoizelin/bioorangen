@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { db } from "./firebaseConfig";
+import { doc, getDoc } from "firebase/firestore";
 
 function ProductCard({ onItemSelected }) {
-  const products = [
-    { id: 1, name: 'Orangen', price: 2.8125, image: require('./images/bioorangen16.jpg') },
-    { id: 2, name: 'Zitronen', price: 4.0, image: require('./images/bioorangen3.jpg') },
-    { id: 3, name: 'Mandarinen', price: 3.50, image: require('./images/bioorangen4.jpg') },
-    { id: 4, name: 'Olivenöl', price: 32.00, image: require('./images/bioorangen17.jpg') },
+  const [activeProducts, setActiveProducts] = useState({});
+
+  const allProducts = [
+    { id: 1, name: 'Orangen', price: 2.8125, image: require('./images/bioorangen16.jpg'), key: 'orangen'},
+    { id: 2, name: 'Zitronen', price: 4.0, image: require('./images/bioorangen3.jpg'), key: 'zitronen'},
+    { id: 3, name: 'Mandarinen', price: 3.50, image: require('./images/bioorangen4.jpg'), key: 'mandarinen'},
+    { id: 4, name: 'Olivenöl', price: 32.00, image: require('./images/bioorangen17.jpg'), key: 'oliveoil' },
   ];
 
   const [selectedProduct, setSelectedProduct] = useState(null); // For modal popup
@@ -79,6 +83,15 @@ function ProductCard({ onItemSelected }) {
       localStorage.setItem('cart', JSON.stringify(cart));
   };
 
+  const fetchActiveProducts = async () => {
+      const docRef = doc(db, "settings", "products");
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        setActiveProducts(docSnap.data());
+        console.log("Aktive Produkte:", docSnap.data());
+      }
+    };
+
     // Lade CartData aus dem LocalStorage bei der Komponente-Initialisierung
    /* useEffect(() => {
     
@@ -95,14 +108,20 @@ function ProductCard({ onItemSelected }) {
     }, []);*/
 
     useEffect(() => {
+      fetchActiveProducts();
       localStorage.setItem('cart', JSON.stringify(cart));
    }, [cart]);
+
+     // Nur Produkte anzeigen, die aktiv sind
+  const visibleProducts = allProducts.filter(
+    (product) => activeProducts[product.key] !== false // false = deaktiviert
+  );
 
   return (
     <div className="container mx-auto p-6">
       {/* Product Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-2">
-        {products.map((product) => (
+        {visibleProducts.map((product) => (
           <div
             key={product.id}
             className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg cursor-pointer"
