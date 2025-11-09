@@ -99,7 +99,7 @@ const Admin = () => {
 const saveHomepageText = async () => {
   try {
     await updateDoc(doc(db, "settings", "homepage"), {
-      text: homepageText,
+      homepagetext: homepageText,
     });
     alert("Startseitentext gespeichert!");
   } catch (error) {
